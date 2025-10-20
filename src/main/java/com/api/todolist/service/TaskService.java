@@ -6,6 +6,8 @@ import com.api.todolist.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaskService {
     @Autowired
@@ -19,4 +21,10 @@ public class TaskService {
         newTask.setCreatedAt(java.time.LocalDateTime.now());
         return taskRepository.save(newTask);
     }
+
+    public List<Task> getTasks() {
+        return taskRepository.findAll();
+    }
+
+
 }
